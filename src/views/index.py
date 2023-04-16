@@ -35,7 +35,7 @@ def menu_navegacao():
             case 'l':
                 listarPessoas()
             case 'd':
-                print('Remover pessoa')
+                removerPessoa()
             case 'q':
                 print('=== Finalizando sistema... ====')
                 exit()

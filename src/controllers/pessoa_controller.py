@@ -15,3 +15,7 @@ class PessoaController:
     @classmethod
     def listar_pessoas(cls) -> List[Pessoa]:
         return cls.pessoas
+    
+    @classmethod
+    def remover_pessoa(cls,pessoa:Pessoa) -> None:
+        cls.pessoas.remove(pessoa)
