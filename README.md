@@ -7,9 +7,6 @@
     Um CRUD completo em Python utilizando listas
     <br/>
     <br/>
-    <h4 align="center"> 
-	🚧  Python Simple CRUD em construção...  🚧
-</h4>
 </p>
 
 

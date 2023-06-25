@@ -8,7 +8,7 @@ from ..models.pessoa import Pessoa
 def adicionarPessoa():
     cpf = input("Digite o cpf da pessoa:")
     if (verificaCPF(cpf) == 1):
-        print('CPF informado já cadastrado!')
+        print(' \n CPF informado já cadastrado!')
     else:
         nome = input("Digite o nome da pessoa:")
         sobrenome = input("Digite o sobrenome da pessoa:")
@@ -16,7 +16,7 @@ def adicionarPessoa():
 
         nova_pessoa = Pessoa(nome = nome,sobrenome = sobrenome, cpf = cpf, data_de_nascimento = data_de_nascimento )
         PessoaController.salvar_pessoa(nova_pessoa)
-        print(' ----  Cadastro realizado com sucesso! ----')
+        print(' \n ----  Cadastro realizado com sucesso! ----')
 
 def buscarPessoa():
     cpf = input('Digite o CPF da pessoa: ')
@@ -24,11 +24,24 @@ def buscarPessoa():
         if (pessoa.cpf == cpf):
             return print(f' Nome: {pessoa.nome} \n Sobrenome: {pessoa.sobrenome} \n CPF: {pessoa.cpf} \n Data de Nascimento: {pessoa.data_de_nascimento}')
         else:
-            return print('CPF da pessoa informada não possui cadastro.')
+            return print('\n CPF da pessoa informada não possui cadastro.')
+
+def atualizarPessoa():
+   cpf = input('Digite o CPF da pessoa:')
+   for pessoa in PessoaController.listar_pessoas():
+       if (pessoa.cpf == cpf):
+           novoNome = input('Digite o novo nome da pessoa:')
+           novoSobrenome = input('Digite o novo sobrenome da pessoa:')
+           pessoa.nome = novoNome
+           pessoa.sobrenome = novoSobrenome
+           return print('\n Dados atualizados com sucesso!')
+       else:
+           return print('\n CPF da pessoa informada não possui cadastro.')
+
 
 def listarPessoas():
     if not PessoaController.listar_pessoas():
-        print('Não possui cadastro de nenhuma pessoa no momento!')
+        print('\n Não possui cadastro de nenhuma pessoa no momento!')
     else:
         for pessoa in PessoaController.listar_pessoas():
             print(' ------------------------ ')
@@ -39,9 +52,9 @@ def removerPessoa():
     for pessoa in PessoaController.listar_pessoas():
         if (pessoa.cpf == cpf):
             PessoaController.remover_pessoa(pessoa)
-            return print(f'CPF: {pessoa.cpf} foi removido com sucesso!')
+            return print(f'\n CPF: {pessoa.cpf} foi removido com sucesso!')
         else:
-            return print('CPF da pessoa informada não possui cadastro.')
+            return print('\n CPF da pessoa informada não possui cadastro.')
 
 def verificaCPF(cpf):
     for i in PessoaController.listar_pessoas():

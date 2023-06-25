@@ -31,7 +31,7 @@ def menu_navegacao():
             case 'b':
                 buscarPessoa()
             case 'a':
-                print("Atulizar pessoa")
+                atualizarPessoa()
             case 'l':
                 listarPessoas()
             case 'd':
